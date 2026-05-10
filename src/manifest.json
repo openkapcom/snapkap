@@ -1,0 +1,64 @@
+{
+  "manifest_version": 3,
+  "name": "SnapKap",
+  "description": "Beautiful screenshot capture & editor. Capture, annotate, and share stunning screenshots instantly.",
+  "version": "1.0.0",
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "32": "assets/icons/icon32.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "32": "assets/icons/icon32.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
+    },
+    "default_title": "SnapKap - Screenshot",
+    "default_popup": "popup/popup.html"
+  },
+  "background": {
+    "service_worker": "background/serviceWorker.js"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs",
+    "scripting",
+    "clipboardWrite",
+    "offscreen"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "commands": {
+    "capture-area": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+A",
+        "mac": "Command+Shift+A"
+      },
+      "description": "Capture area screenshot"
+    },
+    "capture-fullpage": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S",
+        "mac": "Command+Shift+S"
+      },
+      "description": "Capture full page screenshot"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/*",
+        "editor/editor.html",
+        "editor/editor.js",
+        "offscreen/offscreen.html",
+        "content/area-select.css"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

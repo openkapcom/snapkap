@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      width: 280px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+      background: #ffffff;
+      color: #1a1d23;
+      font-size: 13px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 16px 12px;
+      border-bottom: 1px solid #e8eaed;
+    }
+
+    .logo {
+      width: 32px; height: 32px;
+      border-radius: 7px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    .badge {
+      margin-left: auto;
+      font-size: 9px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #fff7ed, #e0e7ff);
+      color: #f97316;
+      padding: 3px 9px;
+      border-radius: 99px;
+      letter-spacing: 0.4px;
+    }
+
+    .capture-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      padding: 16px;
+    }
+
+    .capture-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 8px;
+      border-radius: 12px;
+      border: 1.5px solid #e8eaed;
+      background: #ffffff;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 600;
+      color: #4b5563;
+    }
+
+    .capture-btn:hover {
+      border-color: #f97316;
+      background: #fff7ed;
+      color: #f97316;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(249,115,22,0.15);
+    }
+
+    .capture-btn:active { transform: scale(0.96); }
+
+    .capture-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: #f4f5f7;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.18s;
+    }
+
+    .capture-btn:hover .capture-icon { background: #fed7aa; }
+    .capture-icon svg { width: 18px; height: 18px; }
+
+    .shortcut-hint {
+      padding: 0 16px 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    .shortcut-hint kbd {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 5px;
+      background: #f4f5f7;
+      border: 1px solid #e8eaed;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 10px;
+      font-weight: 600;
+      color: #4b5563;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+    }
+
+    .footer {
+      padding: 10px 16px;
+      border-top: 1px solid #e8eaed;
+      text-align: center;
+      font-size: 10px;
+      color: #9ca3af;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo">
+      <img src="../assets/icons/icon48.png" alt="SnapKap" style="width:32px;height:32px;border-radius:7px;">
+    </div>
+    <span class="brand">SnapKap</span>
+    <span class="badge">v1.0</span>
+  </div>
+
+  <div class="capture-grid">
+    <button class="capture-btn" id="btn-area">
+      <div class="capture-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 3.75H6A2.25 2.25 0 003.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0120.25 6v1.5m0 9V18A2.25 2.25 0 0118 20.25h-1.5m-9 0H6A2.25 2.25 0 013.75 18v-1.5"/>
+        </svg>
+      </div>
+      <span>Area</span>
+    </button>
+
+    <button class="capture-btn" id="btn-tab">
+      <div class="capture-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 8.25V18a2.25 2.25 0 002.25 2.25h13.5A2.25 2.25 0 0021 18V8.25m-18 0V6a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 6v2.25m-18 0h18M5.25 6h.008v.008H5.25V6zM7.5 6h.008v.008H7.5V6zm2.25 0h.008v.008H9.75V6z"/>
+        </svg>
+      </div>
+      <span>Tab</span>
+    </button>
+
+    <button class="capture-btn" id="btn-screen">
+      <div class="capture-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25A2.25 2.25 0 015.25 3h13.5A2.25 2.25 0 0121 5.25z"/>
+        </svg>
+      </div>
+      <span>Window</span>
+    </button>
+  </div>
+
+  <div class="shortcut-hint">
+    <kbd>&#8984;&#8679;A</kbd> Area &nbsp;&nbsp; <kbd>&#8984;&#8679;S</kbd> Full page
+  </div>
+
+  <div class="footer">
+    SnapKap &mdash; Screenshot capture & editor
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
